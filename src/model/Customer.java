@@ -13,10 +13,12 @@ public Customer (String firstName, String lastName, String email){
     this.lastName = lastName;
     this.email = email;
 }
+/*
 //Not clear how to implement regex and exception
 String emailRegex = "^(.+)@(.+).(.+)$";
 Pattern pattern = Pattern.compile(emailRegex);
     Matcher matcher = pattern.matcher(email);
+*/
 
 
     public String getFirstName() {
