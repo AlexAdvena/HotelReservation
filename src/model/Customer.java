@@ -7,18 +7,22 @@ public class Customer {
 private String firstName;
 private String lastName;
 private String email;
+private final String emailRegex = "^(.+)@(.+).(.+)$";
+private final Pattern pattern = Pattern.compile(emailRegex);
 
 public Customer (String firstName, String lastName, String email){
     this.firstName = firstName;
     this.lastName = lastName;
-    this.email = email;
+    this.email = validateEmail(email);
 }
-/*
-//Not clear how to implement regex and exception
-String emailRegex = "^(.+)@(.+).(.+)$";
-Pattern pattern = Pattern.compile(emailRegex);
-    Matcher matcher = pattern.matcher(email);
-*/
+
+private String validateEmail (String email){
+    if (pattern.matcher(email).matches()) {
+        return email;
+    }
+    throw new IllegalArgumentException("The email format is not valid!");
+}
+
 
 
     public String getFirstName() {
